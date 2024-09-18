@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import "./flowers.scss";
+import "./Flowers.scss";
 
 export function Flowers() {
   useEffect(() => {
