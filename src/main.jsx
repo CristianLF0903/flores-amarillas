@@ -6,11 +6,11 @@ import { Flowers } from "./Flowers.jsx";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/flores-amarillas/",
     element: <App />,
   },
   {
-    path: "/flowers",
+    path: "/flores-amarillas/flowers",
     element: <Flowers />,
   },
 ]);
