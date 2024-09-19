@@ -9,7 +9,9 @@ export function App() {
       <div className="container">
         <h1 data-text="mi amor">mi amor</h1>
         <p>Tengo un regalito para tí!!</p>
-        <BubblyButton href="/flowers">¡Descubre tu sorpresa!</BubblyButton>
+        <BubblyButton href="/flores-amarillas/flowers">
+          ¡Descubre tu sorpresa!
+        </BubblyButton>
       </div>
     </>
   );
