@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
+import { useContext, useEffect } from "react";
+import { FlowersContext } from "./context/FlowersContext.jsx";
 import "./BubblyButton.scss";
 
-export function BubblyButton({ children, href }) {
-  const [redirectUrl, setRedirectUrl] = useState(href);
+export function BubblyButton({ children }) {
+  const { flowers, setFlowers } = useContext(FlowersContext);
 
   const animateButton = (e) => {
     e.preventDefault();
@@ -12,16 +13,10 @@ export function BubblyButton({ children, href }) {
     button.classList.remove("animate");
     button.classList.add("animate");
 
-    // Set redirect URL
-    setRedirectUrl(href);
-
     // Remove animation class and redirect after animation
     setTimeout(() => {
       button.classList.remove("animate");
-
-      if (redirectUrl) {
-        window.location.assign(redirectUrl); // Use window.location.assign() for redirection
-      }
+      setFlowers(!flowers);
     }, 700);
   };
 
@@ -38,11 +33,7 @@ export function BubblyButton({ children, href }) {
         bubblyButtons[i].removeEventListener("click", animateButton, false);
       }
     };
-  }, [redirectUrl]); // Add redirectUrl to the dependency array
+  }, []); // Add redirectUrl to the dependency array
 
-  return (
-    <a href={href} className="bubbly-button">
-      {children}
-    </a>
-  );
+  return <button className="bubbly-button">{children}</button>;
 }
