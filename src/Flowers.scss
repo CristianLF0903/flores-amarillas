@@ -1398,3 +1398,10 @@ main {
 .not-loaded * {
   animation-play-state: paused !important;
 }
+
+
+@media (max-width: 768px) {
+   .flowers{
+    transform: scale(1.4);
+  }
+}

@@ -1,79 +1,98 @@
-body{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', cursive;
-    color: #fff;
-    overflow: hidden;
+/* Estilos generales */
+body {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', cursive;
+  color: #fff;
+  overflow: hidden;
 }
 
-.container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    z-index: 1;
-
-    gap: 2rem;
-
-    text-align: center;
-
-    width: 100%;
-    height: 100vh;
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  gap: 2rem;
+  text-align: center;
+  width: 100%;
+  height: 100vh;
 }
 
 .container h1 {
-    text-transform: uppercase;
-    letter-spacing: 1.5rem; /* Aumenta el espaciado entre letras */
-    word-spacing: 3rem; /* Aumenta el espaciado entre palabras */
-    display: inline-block; /* Permite que el elemento h1 se ajuste al contenido */
-    position: relative;
-    font-size: 10rem;
-    font-family: "Poppins", sans-serif;
-    color: #fff;
-    background-image: radial-gradient(#fff);
+  text-transform: uppercase;
+  letter-spacing: 1.5rem; /* Espaciado entre letras */
+  word-spacing: 3rem; /* Espaciado entre palabras */
+  display: inline-block;
+  position: relative;
+  font-size: 10rem;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+  background-image: radial-gradient(#fff);
+}
+
+.container h1::before,
+.container h1::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  text-align: center;
+  line-height: 1.1;
+}
+
+.container h1::before {
+  color: #ca8011;
+  z-index: -1;
+  transition: 0.2s ease-in-out;
+}
+
+.container h1:hover::before {
+  top: 0.05em;
+  left: 0.05em;
+}
+
+.container h1::after {
+  color: transparent;
+  background-image: radial-gradient(#ecde2280 0.0125em, transparent 0.0125em);
+  background-size: 8px 8px;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-stroke: 1px #ecde22;
+  transition: 0.2s ease-in-out;
+}
+
+.container h1:hover::after {
+  top: -0.05em;
+  left: -0.05em;
+}
+
+.container p {
+  color: #fffb06;
+  font-weight: bolder;
+  font-size: xx-large;
+}
+
+/* Consulta para dispositivos móviles */
+@media (max-width: 768px) {
+  .container {
+      gap: 1.5rem;
   }
-  
+
+  .container h1 {
+      font-size: 5rem; /* Tamaño más pequeño para pantallas móviles */
+      letter-spacing: 0.5rem; /* Reducir espaciado entre letras */
+      word-spacing: 1rem; /* Reducir espaciado entre palabras */
+  }
+
   .container h1::before,
   .container h1::after {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: block;
-    text-align: center; /* Alinea el texto al centro del pseudo-elemento */
-    line-height: 1.1; /* Ajusta el espaciado vertical del texto */
+      line-height: 1; /* Ajustar el espaciado vertical */
   }
-  
-  .container h1::before {
-    color: #ca8011;
-    z-index: -1; /* Asegura que el pseudo-elemento esté detrás del texto principal */
-    transition: 0.2s ease-in-out;
-  }
-  
-  .container h1:hover::before {
-    top: 0.05em;
-    left: 0.05em;
-  }
-  
-  .container h1::after {
-    color: transparent;
-    background-image: radial-gradient(#ecde2280 0.0125em, transparent 0.0125em);
-    background-size: 8px 8px;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-stroke: 1px #ecde22;
-    transition: 0.2s ease-in-out;
-  }
-  
-  .container h1:hover::after {
-    top: -0.05em;
-    left: -0.05em;
-  }
-  
 
-.container p{
-    color: #fffb06;
-    font-weight: bolder;
-    font-size: xx-large
+  .container p {
+      font-size: large; /* Tamaño de fuente más pequeño para móviles */
+  }
 }
